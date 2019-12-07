@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	<h1>Idle Wizard Experience Calculator</h1>
+	<p>Release Date: 12/2019 </p>
+	<p>For use with: <a href="https://idle-wizard.fandom.com/wiki/Character_Leveling_Guide_%28240%2B%29">
+Character Leveling Guide (240+)</a> by Rhasntsul</p>
+	<p>Logic/Formulas reversed engineered by: Rhasntsul#7935</br>
+	Ported to the web by: Kamio#7389<p>
+	<p>Fill out the following information, then click "Calculate"</br>
+	If it starts get bug out, press F5 to refresh</p>
+	<table>
+	<tr>
+	<td>
+	<h2>Basics:</h2>
+	<p> Mana Sources: <input type="text" id="manaSources" value="100000"></br>
+	Mana (X.XXEYY): <input type="text" id="mana" value="1.00E12"></br>
+	Autoclicks (X.XXEYY): <input type="text" id="autoClicks" value="1.00E12"></br>
+	Void Entities (X.XXEYY): <input type="text" id="voidEnts" value="1.00E12"></br>
+	Spellcasts (X.XXEYY): <input type="text" id="spellCasts" value="1.00E12"></br>
+	Starting Level: <input type="text" id="startLevel" value="12"></br>
+	Level Wanted: <input type="text" id="finishLevel" value="280"></br>
+	True Sorcery Casts (X.XXEYY): <input type="text" id="tsCasts" value="1.00E12"></br>
+	</p>
+	<h2>Additional Details:</h2>
+	<p>
+	Progress Week: <input type="checkbox" id="progressWeek" checked="false"></br>
+	Paragons: 
+	<select id="paragons">
+	<option value="1">None</option>
+	<option value="15">15+</option>
+	<option value="18">18+</option>
+	<option value="23">23+</option>
+	<option value="46">46+</option>
+	<option value="66">66+</option>
+	</select>
+	</p>
+	Mastery Points: 
+	<select id="masteryPoints">
+	<option value="1">None</option>
+	<option value="50">50</option>
+	<option value="75">75</option>
+	<option value="175">175</option>
+	<option value="225">225</option>
+	</select>
+	</p>
+Challenges:
+<table>
+	<tr>
+		<td>
+		<table>
+			<tr>
+			10.) Spell-Sources <input type="checkbox" id="c10" checked="false"></br>
+			</tr>
+			<tr>
+			17.) Full-Power Alchemist <input type="checkbox" id="c17" checked="false"></br>
+			</tr>
+			<tr>
+			18.) Full-Power Alchemist II <input type="checkbox" id="c18" checked="false"></br>
+			</tr>
+			<tr>
+			19.) Full-Power Alchemist III <input type="checkbox" id="c19" checked="false"></br>
+			</tr>
+			<tr>
+			37.) Unstable Curse <input type="checkbox" id="c37" checked="false"></br>
+			</tr>
+		</table>
+		</td>
+		<td>
+		<table>
+			<tr>
+			38.) Unstable Curse II<input type="checkbox" id="c38" checked="false"></br>
+			</tr>
+			<tr>
+			39.) Unstable Curse III <input type="checkbox" id="c39" checked="false"></br>
+			</tr>
+			<tr>
+			67.) Experiments with Anomaly IV <input type="checkbox" id="c67" checked="false"></br>
+			</tr>
+			<tr>
+			70.) Unstable Time <input type="checkbox" id="c70" checked="false"></br>
+			</tr>
+			<tr>
+			71.) Training Hunger <input type="checkbox" id="c71" checked="false"></br>
+			</tr>
+		</table>
+		</td>
+		<td>
+		<table>
+			<tr>
+			95.) Children of the Night <input type="checkbox" id="c95" checked="false"></br>
+			</tr>
+			<tr>
+			96.) Children of the Night II <input type="checkbox" id="c96" checked="false"></br>
+			</tr>
+			<tr>
+			97.) Children of the Night III <input type="checkbox" id="c97" checked="false"></br>
+			</tr>
+			<tr>
+			98.) Reality Decompression <input type="checkbox" id="c98" checked="false"></br>
+			</tr>
+			<tr>
+			99.) Absorption <input type="checkbox" id="c99" checked="true"></br>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</p>
+<h2>Secret Achievements:</h2>
+Much Potential Left  <input type="checkbox" id="muchPot"></br>
+Mighty Group <input type="checkbox" id="mightyGroup"></br>
+<h2>Items:</h2>
+<p>Nomadic Wrists 
+<select id="Nomadic">
+<option value="None">Not Equipped</option>
+<option value="Rare">Rare</option>
+<option value="Epic">Epic</option>
+<option value="Leg">Legendary</option>
+</select>
+</br>
+Hollow Eye Pendant
+<select id="HollowEye">
+<option value="None">Not Equipped</option>
+<option value="Rare">Rare</option>
+<option value="Epic">Epic</option>
+<option value="Leg">Legendary</option>
+</select>
+</br>
+Endless Pouches
+<select id="Endless">
+<option value="1">Not Equipped</option>
+<option value="1.25">Uncommon</option>
+<option value="1.75">Rare</option>
+<option value="2">Epic</option>
+<option value="2.5">Legendary</option>
+</select>
+</br>
+Casque of Learning
+<select id="Casque">
+<option value="1">Not Equipped</option>
+<option value="1.2">Epic</option>
+<option value="2">Legendary</option>
+</select>
+</br>
+The Great Journey
+<select id="Great">
+<option value="1">Not Equipped</option>
+<option value="1.25">Uncommon</option>
+<option value="1.5">Uncommon</option>
+<option value="1.75">Rare</option>
+<option value="2">Epic</option>
+<option value="2">Legendary</option>
+</select>
+</br>
+Artificer's Shoulderpads
+<select id="Artificer">
+<option value="1">Not Equipped</option>
+<option value="1.15">Epic</option>
+<option value="1.5">Legendary</option>
+</select>
+</br>
+</p>
+</td>
+<td>
+
+Current XP <table><tr><td id=cur_XP>X</td></tr></table>
+Goal XP <table><tr><td id=goal_XP>X</td></tr></table>
+XP Neeeded for Goal <table><tr><td id=needed_XP>X</td></tr></table>
+</br>
+
+Time to Goal
+	<table>
+		<tr>
+			<td id=ToG_Reg_Min> X </td>
+			<td> Minutes </td>
+		</tr>
+		<tr>
+			<td id=ToG_Reg_Hrs> X </td>
+			<td> Hours </td>
+		</tr>
+		<tr>
+			<td id=ToG_Reg_Days> X </td>
+			<td> Days </td>
+		</tr>
+		<tr>
+			<td id=ToG_Reg_Wks> X </td>
+			<td> Weeks </td>
+		</tr>
+		<tr>
+			<td id=ToG_Reg_Mths> X </td>
+			<td> Months </td>
+		</tr>
+	</table>
+</br>
+Time to Goal during Persistence Week
+	<table>
+		<tr>
+			<td id=ToG_Per_Min> X </td>
+			<td> Minutes </td>
+		</tr>
+		<tr>
+			<td id=ToG_Per_Hrs> X </td>
+			<td> Hours </td>
+		</tr>
+		<tr>
+			<td id=ToG_Per_Days> X </td>
+			<td> Days </td>
+		</tr>
+		<tr>
+			<td id=ToG_Per_Wks> X </td>
+			<td> Weeks </td>
+		</tr>
+		<tr>
+			<td id=ToG_Per_Mths> X </td>
+			<td> Months </td>
+		</tr>
+	</table>
+</br>
+	<table>
+		<tr>
+			<td id=Tot_TS_Cast_Needed> X </td>
+			<td> Total TS Cast Needed </td>
+		</tr>
+		<tr>
+			<td id=TS_Cast_Needed> X </td>
+			<td>TS Cast Needed </td>
+		</tr>
+	</table>
+</br>
+	<table>
+		<tr>
+			<td id=AXP> X </td>
+			<td> Active XP </td>
+		</tr>
+		<tr>
+			<td id=SXP> X </td>
+			<td>Source XP </td>
+		</tr>
+	</table>
+</td>
+</table>
+
+<script>
+function Calc()
+{
+	var manaObj = { base: "", exp: ""};
+	var acObj = {base: "", exp: ""};
+	var veObj = {base: "", exp: ""};
+	var scObj = {base: "", exp: ""};
+	var tsObj = {base: "", exp: ""};
+
+	splitSci(manaObj,document.getElementById("mana"));
+	splitSci(acObj,document.getElementById("autoClicks"));
+	splitSci(veObj,document.getElementById("voidEnts"));
+	splitSci(scObj,document.getElementById("spellCasts"));
+	splitSci(tsObj,document.getElementById("tsCasts"));
+
+	var acNum = fromSci(acObj);
+	var veNum = fromSci(veObj);
+	var scNum = fromSci(scObj);
+	var tsNum = fromSci(tsObj);
+
+	var tsSourceXP = (Math.pow(((tsNum+1)/1000),0.35)+1);
+
+	var startLvl = document.getElementById("startLevel").value;
+	startLvl = 100/9*Math.pow(1.09,startLvl-1)*1500;
+	console.debug("startLvl: "+startLvl);
+
+	var finishLvl = document.getElementById("finishLevel").value;
+
+	document.getElementById("AXP").innerHTML = "???";
+	var aXP=0;
+	aXP = activeXP();
+	aXP = Math.round(aXP);
+	aXPs = toScientfic(aXP);
+	document.getElementById("AXP").innerHTML = aXPs;
+
+	document.getElementById("SXP").innerHTML = "???";
+	var sXP=0;
+	sXP = sourceXP(tsNum);
+	sXP = Math.round(sXP);
+	sXPs = toScientfic(sXP);
+	document.getElementById("SXP").innerHTML = sXPs;
+
+	var manaSrc = document.getElementById("manaSources").value;
+	manaSrc = Math.pow((sXP * manaSrc + 1),.855);
+	console.debug("manaSrc:"+manaSrc);
+	
+	var mana = Number(manaObj.exp) + Number(Math.log10(manaObj.base));
+	console.debug("manaObj.exp: "+manaObj.exp);
+	console.debug("manaObj.base: "+manaObj.base);
+	console.debug("log10(manaObj.base): "+Math.log10(manaObj.base));
+	console.debug("mana:"+mana);
+
+	var ac = Math.log10(aXP*acNum+1);
+	console.debug("aXP: "+aXP);
+	console.debug("acNum: "+acNum);
+	console.debug("ac:"+ac);
+	
+	var ve = Math.log(aXP*veNum+1);
+	console.debug("veNum: "+veNum);
+	console.debug("ve:"+ve);
+
+	var sc = Math.log(aXP*scNum+1);
+	console.debug("scNum: "+scNum);
+	console.debug("sc:"+sc);
+
+	document.getElementById("cur_XP").innerHTML = "???";
+	var cXP=startLvl-100+(100+manaSrc)*(mana+1)*(ac+1)*(ve/2+1)*(sc/4+1);
+	console.debug("cXP:"+cXP);
+	cXPs = toScientfic(cXP);
+	document.getElementById("cur_XP").innerHTML = cXPs;
+
+	document.getElementById("goal_XP").innerHTML = "???";
+	var gXP=(1-Math.pow(1.09,finishLvl-1)*1500/-0.09);
+	console.debug("gXP:"+gXP);
+	gXPs = toScientfic(gXP);
+	document.getElementById("goal_XP").innerHTML = gXPs;
+
+	document.getElementById("needed_XP").innerHTML = "???";
+	var nXP=gXP-cXP
+	console.debug("nXP:"+nXP);
+	nXPs = toScientfic(nXP);
+	document.getElementById("needed_XP").innerHTML = nXPs;
+	
+
+	document.getElementById("Tot_TS_Cast_Needed").innerHTML = "???"
+	var TotTS = Math.pow((Math.pow(gXP/cXP,1/0.855)*tsSourceXP-1),1/0.35)*1000;
+	console.debug("TotTS:"+TotTS);
+	TotTSs = toScientfic(TotTS);
+	document.getElementById("Tot_TS_Cast_Needed").innerHTML = TotTSs;
+
+	document.getElementById("TS_Cast_Needed").innerHTML = "???"
+	var TSneed = TotTS-tsNum;
+	console.debug("TSneed:"+TSneed);
+	TSneeds = toScientfic(TSneed);
+	document.getElementById("TS_Cast_Needed").innerHTML = TSneeds;
+
+
+	
+	
+}
+
+function sourceXP(tsNum)
+{
+	var s=1;
+
+	if (document.getElementById("muchPot").checked == true)
+	{
+		console.debug("s");
+		s=s*1.15;
+	}
+	if (document.getElementById("masteryPoints").value == "225")
+	{
+		s=s*1.796875;
+	}else if (document.getElementById("masteryPoints").value == "175")
+	{
+		s=s*1.5625;
+	}else if (document.getElementById("masteryPoints").value == "75")
+	{
+		s=s*1.25;
+	}
+	if (document.getElementById("paragons").value = "66")
+	{
+		s=s*1.25;
+	}
+	if (document.getElementById("c96").checked == true)
+	{
+		s=s*1.5;
+	}
+	if (document.getElementById("c97").checked == true)
+	{
+		s=s*1.5;
+	}
+	if (document.getElementById("c99").checked == true)
+	{
+		s=s*1.5;
+	}
+	if (document.getElementById("HollowEye").value == "Leg")
+	{
+		s=s*1.35;
+	}else if (document.getElementById("HollowEye").value == "Epic")
+	{
+		s=s*1.35;
+	}else if (document.getElementById("HollowEye").value == "Rare")
+	{
+		s=s*1;
+	}
+	if (document.getElementById("Nomadic").value == "Leg")
+	{
+		s=s*1.75;
+	}else if (document.getElementById("Nomadic").value == "Epic")
+	{
+		s=s*1.5;
+	}else if (document.getElementById("Nomadic").value == "Rare")
+	{
+		s=s*1.2;
+	}
+		s=s*(Math.pow(((tsNum+1)/1000),0.35)+1)
+		console.debug(tsNum);
+		console.debug((Math.pow(((tsNum+1)/1000),0.35)+1));
+	return s;
+}
+
+function activeXP()
+{
+	var z=1;
+if (document.getElementById("mightyGroup").checked == true)
+	{
+		console.debug("a");
+		z=z*1.1;
+	}
+if (document.getElementById("masteryPoints").value >= 50)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("paragons").value == 15)
+	{
+		z=z*2;
+	}else if (document.getElementById("paragons").value == 18)
+	{
+		z=z*2*3;
+	}else if (document.getElementById("paragons").value == 23)
+	{
+		z=z*2*3*3;
+	}else if (document.getElementById("paragons").value >= 46)
+	{
+		z=z*2*3*3*3;
+	}
+if (document.getElementById("c10").checked == true)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("c17").checked == true)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("c18").checked == true)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("c19").checked == true)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("c37").checked == true)
+	{
+		z=z*1.75;
+	}
+if (document.getElementById("c38").checked == true)
+	{
+		z=z*1.75;
+	}
+if (document.getElementById("c39").checked == true)
+	{
+		z=z*1.75;
+	}
+if (document.getElementById("c67").checked == true)
+	{
+		z=z*1.75;
+	}
+if (document.getElementById("c70").checked == true)
+	{
+		z=z*1.75;
+	}
+if (document.getElementById("c71").checked == true)
+	{
+		z=z*2;
+	}
+if (document.getElementById("c95").checked == true)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("c98").checked == true)
+	{
+		z=z*1.5;
+	}
+if (document.getElementById("HollowEye").value == "Leg" || document.getElementById("HollowEye").value == "Epic" || document.getElementById("HollowEye").value == "Rare")
+	{
+		z=z*2;
+	}
+		z=z*document.getElementById("Endless").value;
+		z=z*document.getElementById("Casque").value;
+		z=z*document.getElementById("Great").value;
+		z=z*document.getElementById("Artificer").value;
+
+return z
+}
+
+
+
+function splitSci(obj,ele)
+{
+	
+	
+	var eLoc = ele.value.indexOf("E");
+	if (eLoc != -1)
+	{	
+
+	var b = ele.value.substr(0,eLoc);
+	var e = ele.value.substr(eLoc+1,(ele.value.length-eLoc));
+
+	obj.base = b;
+	obj.exp = e;
+	}
+
+}
+
+function fromSci(obj)
+{
+	
+	var numb=-1;
+	if (obj.exp < 300)
+	{
+	numb = obj.base * Math.pow(10,obj.exp);	
+	console.debug("obj:"+obj+"   "+numb);
+	}
+	return numb;
+		
+}
+
+function toScientfic(numb)
+{
+	var n = 0;
+	var l = 0;
+	var out = ""
+
+	n = parseInt(numb);
+	n = String(n);
+	l = n.length;
+
+	out = n.substr(0,1)+"."+n.substr(1,2)+"E"+String(n.length-1);
+	return out;
+}
+
+</script>
+
+<button onclick="Calc();">Calculate</button>
+</body>
+</html>
