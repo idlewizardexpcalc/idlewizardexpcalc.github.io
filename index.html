@@ -299,8 +299,7 @@ function Calc()
 		petObj.base = 1;
 		petObj.exp = 4;
 		
-	}
-	if (cls=="Abo")
+	} else if (cls=="Abo")
 	{
 		document.getElementById("pet").value = "GC";
 		pet = "GC";
@@ -678,27 +677,29 @@ function mSource(tot_Mana,cc,pet)
 	
 	if (cls == "Prod")
 		{
-			mGem = ((Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(15))/Math.log10(1.1475))+1;			
-			Grim = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(240))/Math.log10(1.155)+1;
-			SF   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(3200))/Math.log10(1.1625)+1;
-			ET   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(54600))/Math.log10(1.17)+1;
-			AD   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(1180000))/Math.log10(1.1775)+1;
-			CP   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(282360000))/Math.log10(1.185)+1;
-			DR   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(6221250000))/Math.log10(1.1925)+1;
-			Nex  = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(221913000000))/Math.log10(1.2)+1;
+			mGem = ((Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(15))/Math.log10(1.1475))+1;			
+			Grim = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(240))/Math.log10(1.155)+1;
+			SF   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(3200))/Math.log10(1.1625)+1;
+			ET   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(54600))/Math.log10(1.17)+1;
+			AD   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(1180000))/Math.log10(1.1775)+1;
+			CP   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(282360000))/Math.log10(1.185)+1;
+			DR   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(6221250000))/Math.log10(1.1925)+1;
+			Nex  = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(221913000000))/Math.log10(1.2)+1;
+			console.debug(Number(manaObj.exp)+"+"+Number(petObj.exp)+"+"+Math.log10(Number(manaObj.base)*Number(petObj.base)))
 		}else
 		{
-			mGem = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(15))/Math.log10(1.16)+1;
-			Grim = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(240))/Math.log10(1.17)+1;
-			SF  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(3200))/Math.log10(1.18)+1;
-			ET  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(54600))/Math.log10(1.19)+1;
-			console.debug("Log of costs:"+Math.log10(54600));
-			console.debug("Log of 1.19:"+Math.log10(1.19));
-			console.debug("Log of Bases:"+Math.log10(manaObj.base*petObj.base));
-			AD  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(1180000))/Math.log10(1.2)+1;
-			CP  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(282360000))/Math.log10(1.21)+1;
-			DR  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(6221250000))/Math.log10(1.22)+1;
-			Nex =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(221913000000))/Math.log10(1.23)+1;
+			mGem = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(15))/Math.log10(1.16)+1;
+			Grim = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(240))/Math.log10(1.17)+1;
+			SF  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(3200))/Math.log10(1.18)+1;
+			ET  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(54600))/Math.log10(1.19)+1;
+			//console.debug("Log of costs:"+Math.log10(54600));
+			//console.debug("Log of 1.19:"+Math.log10(1.19));
+			//console.debug("Log of Bases:"+Math.log10(manaObj.base*petObj.base));
+			AD  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(1180000))/Math.log10(1.2)+1;
+			CP  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(282360000))/Math.log10(1.21)+1;
+			DR  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(6221250000))/Math.log10(1.22)+1;
+			Nex =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(Number(manaObj.base)*Number(petObj.base))-Math.log10(221913000000))/Math.log10(1.23)+1;
+			console.debug(Number(manaObj.exp)+"+"+Number(petObj.exp)+"+"+Math.log10(Number(manaObj.base)*Number(petObj.base)))
 		}
 		
 		console.debug("---mana Sources-(calculated)------");
@@ -710,7 +711,6 @@ function mSource(tot_Mana,cc,pet)
 		console.debug("CP: "+CP);
 		console.debug("DR: "+DR);
 		console.debug("Nex: "+Nex);
-		
 		
 		
 		mS = parseInt(mGem+Grim+SF+ET+AD+CP+DR+Nex);
