@@ -13,8 +13,30 @@ Character Leveling Guide (240+)</a> by Rhasntsul</p>
 	<tr>
 	<td>
 	<h2>Basics:</h2>
-	<p> Mana Sources: <input type="text" id="manaSources" value="100000"></br>
-	Mana (X.XXEYY): <input type="text" id="mana" value="1.00E12"></br>
+	<p>
+		Class: 
+		<select id="class">
+		<option value="Abo">Abolisher</option>
+		<option value="Arch">Archon</option>
+		<option value="Deso">Desolator/Umbramancer</option>
+		<option value="Here">Heretic/Exorcist</option>
+		<option value="Prod">Prodigy/Temporalist</option>
+		<option value="Other">Other</option>
+		
+		</select>
+		Pet:
+		<select id="pet">
+		<option value="Homu">Homunculus</option>
+		<option value="Simu">Simulacrum</option>
+		<option value="GC">Greater Chimaera/Doppelganger</option>
+		<option value="SS">Soulstealer</option>
+		<!-- <option value="Other">Other</option> -->
+		</select>
+	</p>
+	<!--<p> Mana Sources: <input type="text" id="manaSources" value="100000"></br> -->
+	<p>
+	Current Mana (X.XXEYY): <input type="text" id="cur_mana" value="1.00E12"></br>
+	Max Manu (X.XXEYY): <input type="text" id="max_mana" value="1.00E12"></br>
 	Autoclicks (X.XXEYY): <input type="text" id="autoClicks" value="1.00E12"></br>
 	Void Entities (X.XXEYY): <input type="text" id="voidEnts" value="1.00E12"></br>
 	Spellcasts (X.XXEYY): <input type="text" id="spellCasts" value="1.00E12"></br>
@@ -24,24 +46,27 @@ Character Leveling Guide (240+)</a> by Rhasntsul</p>
 	</p>
 	<h2>Additional Details:</h2>
 	<p>
-	Progress Week: <input type="checkbox" id="progressWeek" checked="false"></br>
+	Progress Week: <input type="checkbox" id="progressWeek"></br>
+	</p>
+	<p>
 	Paragons: 
 	<select id="paragons">
-	<option value="1">None</option>
-	<option value="15">15+</option>
-	<option value="18">18+</option>
-	<option value="23">23+</option>
-	<option value="46">46+</option>
-	<option value="66">66+</option>
+		<option value="1">None</option>
+		<option value="15">15+</option>
+		<option value="18">18+</option>
+		<option value="23">23+</option>
+		<option value="46">46+</option>
+		<option value="66">66+</option>
 	</select>
 	</p>
+	<p>
 	Mastery Points: 
 	<select id="masteryPoints">
-	<option value="1">None</option>
-	<option value="50">50</option>
-	<option value="75">75</option>
-	<option value="175">175</option>
-	<option value="225">225</option>
+		<option value="1">None</option>
+		<option value="50">50</option>
+		<option value="75">75</option>
+		<option value="175">175</option>
+		<option value="225">225</option>
 	</select>
 	</p>
 Challenges:
@@ -163,32 +188,68 @@ Artificer's Shoulderpads
 </p>
 </td>
 <td>
+<h1> Outputs: </h1>
 
-Current XP <table><tr><td id=cur_XP>X</td></tr></table>
-Goal XP <table><tr><td id=goal_XP>X</td></tr></table>
-XP Neeeded for Goal <table><tr><td id=needed_XP>X</td></tr></table>
+<table>
+	<tr>
+		<td>Mana Sources (calculated): </td><td id="manaSources">X</td>
+	</tr>
+	<tr>
+		<td>Current XP </td><td id="cur_XP">X</td>
+	</tr>
+	<tr>
+		<td>Goal XP </td><td id="goal_XP">X</td>
+	</tr>
+	<tr>
+		<td>XP Neeeded for Goal </td><td id="needed_XP">X</td>
+	</tr>
+</table>
+</br>
+
+</br>
+	<table>
+		<tr>
+			<td id="Tot_TS_Cast_Needed"> X </td>
+			<td> Total TS Cast Needed </td>
+		</tr>
+		<tr>
+			<td id="TS_Cast_Needed"> X </td>
+			<td>TS Cast Needed </td>
+		</tr>
+	</table>
+</br>
+	<table>
+		<tr>
+			<td id="AXP"> X </td>
+			<td> Active XP </td>
+		</tr>
+		<tr>
+			<td id="SXP"> X </td>
+			<td>Source XP </td>
+		</tr>
+	</table>
 </br>
 
 Time to Goal
 	<table>
 		<tr>
-			<td id=ToG_Reg_Min> X </td>
+			<td id="ToG_Reg_Min"> X </td>
 			<td> Minutes </td>
 		</tr>
 		<tr>
-			<td id=ToG_Reg_Hrs> X </td>
+			<td id="ToG_Reg_Hrs"> X </td>
 			<td> Hours </td>
 		</tr>
 		<tr>
-			<td id=ToG_Reg_Days> X </td>
+			<td id="ToG_Reg_Days"> X </td>
 			<td> Days </td>
 		</tr>
 		<tr>
-			<td id=ToG_Reg_Wks> X </td>
+			<td id="ToG_Reg_Wks"> X </td>
 			<td> Weeks </td>
 		</tr>
 		<tr>
-			<td id=ToG_Reg_Mths> X </td>
+			<td id="ToG_Reg_Mths"> X </td>
 			<td> Months </td>
 		</tr>
 	</table>
@@ -196,61 +257,86 @@ Time to Goal
 Time to Goal during Persistence Week
 	<table>
 		<tr>
-			<td id=ToG_Per_Min> X </td>
+			<td id="ToG_Per_Min"> X </td>
 			<td> Minutes </td>
 		</tr>
 		<tr>
-			<td id=ToG_Per_Hrs> X </td>
+			<td id="ToG_Per_Hrs"> X </td>
 			<td> Hours </td>
 		</tr>
 		<tr>
-			<td id=ToG_Per_Days> X </td>
+			<td id="ToG_Per_Days"> X </td>
 			<td> Days </td>
 		</tr>
 		<tr>
-			<td id=ToG_Per_Wks> X </td>
+			<td id="ToG_Per_Wks"> X </td>
 			<td> Weeks </td>
 		</tr>
 		<tr>
-			<td id=ToG_Per_Mths> X </td>
+			<td id="ToG_Per_Mths"> X </td>
 			<td> Months </td>
-		</tr>
-	</table>
-</br>
-	<table>
-		<tr>
-			<td id=Tot_TS_Cast_Needed> X </td>
-			<td> Total TS Cast Needed </td>
-		</tr>
-		<tr>
-			<td id=TS_Cast_Needed> X </td>
-			<td>TS Cast Needed </td>
-		</tr>
-	</table>
-</br>
-	<table>
-		<tr>
-			<td id=AXP> X </td>
-			<td> Active XP </td>
-		</tr>
-		<tr>
-			<td id=SXP> X </td>
-			<td>Source XP </td>
 		</tr>
 	</table>
 </td>
 </table>
 
+
 <script>
 function Calc()
 {
-	var manaObj = { base: "", exp: ""};
+
+	var petObj = { base: "", exp: ""};
+
+	var cls = document.getElementById("class").value;
+	var pet = document.getElementById("pet").value;
+	
+	if (cls=="Arch")
+	{
+		document.getElementById("pet").value = "SS";
+		pet = "SS";
+		petObj.base = 1;
+		petObj.exp = 4;
+		
+	}
+	if (cls=="Abo")
+	{
+		document.getElementById("pet").value = "GC";
+		pet = "GC";
+		petObj.base = 1;
+		petObj.exp = 3;
+	} else
+	{
+		pet = document.getElementById("pet").value;
+		if (pet == "Simu" )
+		{	
+			petObj.base = .5;
+			petObj.exp = 3;
+		}else if(pet == "Homu")
+		{
+			petObj.base = 1;
+			petObj.exp = 1;
+		}else if(pet == "GC")
+		{
+			petObj.base = 1;
+			petObj.exp = 3;
+		}else
+		{
+			petObj.base = 1;
+			petObj.exp = 0;
+		}
+	}
+	console.debug("petObj: "+petObj);
+	
+	
+	var cur_manaObj = { base: "", exp: ""};
+	var max_manaObj = { base: "", exp: ""};
 	var acObj = {base: "", exp: ""};
 	var veObj = {base: "", exp: ""};
 	var scObj = {base: "", exp: ""};
 	var tsObj = {base: "", exp: ""};
 
-	splitSci(manaObj,document.getElementById("mana"));
+	splitSci(cur_manaObj,document.getElementById("cur_mana"));
+	splitSci(max_manaObj,document.getElementById("max_mana"));
 	splitSci(acObj,document.getElementById("autoClicks"));
 	splitSci(veObj,document.getElementById("voidEnts"));
 	splitSci(scObj,document.getElementById("spellCasts"));
@@ -260,11 +346,17 @@ function Calc()
 	var veNum = fromSci(veObj);
 	var scNum = fromSci(scObj);
 	var tsNum = fromSci(tsObj);
+	
+	var manaSrc = mSource(max_manaObj,cls,petObj);
+	document.getElementById("manaSources").innerHTML = manaSrc;
+	console.debug("manasources_---MS---:"+manaSrc);
+	document.getElementById("manaSources").style.backgroundColor = "orange";
 
 	var tsSourceXP = (Math.pow(((tsNum+1)/1000),0.35)+1);
 
 	var startLvl = document.getElementById("startLevel").value;
-	startLvl = 100/9*Math.pow(1.09,startLvl-1)*1500;
+	startLvl = 100/9*Math.pow(1.09,startLvl-1)*1500+1;
+	console.debug("----startLvl_usedInCurrentXP_Calc----");
 	console.debug("startLvl: "+startLvl);
 
 	var finishLvl = document.getElementById("finishLevel").value;
@@ -272,30 +364,37 @@ function Calc()
 	document.getElementById("AXP").innerHTML = "???";
 	var aXP=0;
 	aXP = activeXP();
-	aXP = Math.round(aXP);
+	//aXP = Math.round(aXP);
 	aXPs = toScientfic(aXP);
 	document.getElementById("AXP").innerHTML = aXPs;
+	document.getElementById("AXP").style.backgroundColor = "orange"
 
 	document.getElementById("SXP").innerHTML = "???";
 	var sXP=0;
-	sXP = sourceXP(tsNum);
-	sXP = Math.round(sXP);
+	sXP = sourceXP(tsNum,cls);
+	//sXP = Math.round(sXP);
 	sXPs = toScientfic(sXP);
 	document.getElementById("SXP").innerHTML = sXPs;
-
-	var manaSrc = document.getElementById("manaSources").value;
-	manaSrc = Math.pow((sXP * manaSrc + 1),.855);
+	document.getElementById("SXP").style.backgroundColor = "orange"
+	
+	//var manaSrc = document.getElementById("manaSources").value;
+	console.debug('lalalalala:'+sXP);
+	console.debug('lalalalala2:'+manaSrc);
+	manaSrc = Math.pow(sXP * manaSrc + 1,0.855);
+	console.debug("----manaSrc_usedInCurrentXP_Calc----");
 	console.debug("manaSrc:"+manaSrc);
 	
-	var mana = Number(manaObj.exp) + Number(Math.log10(manaObj.base));
-	console.debug("manaObj.exp: "+manaObj.exp);
-	console.debug("manaObj.base: "+manaObj.base);
-	console.debug("log10(manaObj.base): "+Math.log10(manaObj.base));
-	console.debug("mana:"+mana);
+	var cur_mana = Number(cur_manaObj.exp) + Number(Math.log10(cur_manaObj.base));
+	//console.debug("cur_manaObj.exp: "+cur_manaObj.exp);
+	//console.debug("cur_manaObj.base: "+cur_manaObj.base);
+	//console.debug("log10(cur_manaObj.base): "+Math.log10(cur_manaObj.base));
+	console.debug("----cur_mann_usedInCurrentXP_Calc----");
+	console.debug("cur_mana:"+cur_mana);
 
 	var ac = Math.log10(aXP*acNum+1);
-	console.debug("aXP: "+aXP);
-	console.debug("acNum: "+acNum);
+	//console.debug("aXP: "+aXP);
+	//console.debug("acNum: "+acNum);
+	console.debug("----ac_usedInCurrentXP_Calc----");
 	console.debug("ac:"+ac);
 	
 	var ve = Math.log(aXP*veNum+1);
@@ -307,22 +406,25 @@ function Calc()
 	console.debug("sc:"+sc);
 
 	document.getElementById("cur_XP").innerHTML = "???";
-	var cXP=startLvl-100+(100+manaSrc)*(mana+1)*(ac+1)*(ve/2+1)*(sc/4+1);
+	var cXP=startLvl-100+(100+manaSrc)*(cur_mana+1)*(ac+1)*(ve/2+1)*(sc/4+1);
 	console.debug("cXP:"+cXP);
 	cXPs = toScientfic(cXP);
 	document.getElementById("cur_XP").innerHTML = cXPs;
+	document.getElementById("cur_XP").style.backgroundColor = "yellow"
 
 	document.getElementById("goal_XP").innerHTML = "???";
 	var gXP=(1-Math.pow(1.09,finishLvl-1)*1500/-0.09);
 	console.debug("gXP:"+gXP);
 	gXPs = toScientfic(gXP);
 	document.getElementById("goal_XP").innerHTML = gXPs;
+	document.getElementById("goal_XP").style.backgroundColor = "yellow"
 
 	document.getElementById("needed_XP").innerHTML = "???";
 	var nXP=gXP-cXP
 	console.debug("nXP:"+nXP);
 	nXPs = toScientfic(nXP);
 	document.getElementById("needed_XP").innerHTML = nXPs;
+	document.getElementById("needed_XP").style.backgroundColor = "yellow"
 	
 
 	document.getElementById("Tot_TS_Cast_Needed").innerHTML = "???"
@@ -330,25 +432,24 @@ function Calc()
 	console.debug("TotTS:"+TotTS);
 	TotTSs = toScientfic(TotTS);
 	document.getElementById("Tot_TS_Cast_Needed").innerHTML = TotTSs;
+	document.getElementById("Tot_TS_Cast_Needed").style.backgroundColor = "yellow"
 
 	document.getElementById("TS_Cast_Needed").innerHTML = "???"
 	var TSneed = TotTS-tsNum;
 	console.debug("TSneed:"+TSneed);
 	TSneeds = toScientfic(TSneed);
 	document.getElementById("TS_Cast_Needed").innerHTML = TSneeds;
+	document.getElementById("TS_Cast_Needed").style.backgroundColor = "yellow"
 
-
-	
-	
 }
 
-function sourceXP(tsNum)
+function sourceXP(tsNum,cc)
 {
 	var s=1;
 
 	if (document.getElementById("muchPot").checked == true)
 	{
-		console.debug("s");
+		//console.debug("s");
 		s=s*1.15;
 	}
 	if (document.getElementById("masteryPoints").value == "225")
@@ -356,12 +457,12 @@ function sourceXP(tsNum)
 		s=s*1.796875;
 	}else if (document.getElementById("masteryPoints").value == "175")
 	{
-		s=s*1.5625;
+		s=s*1.4375;
 	}else if (document.getElementById("masteryPoints").value == "75")
 	{
-		s=s*1.25;
+		s=s*1.15;
 	}
-	if (document.getElementById("paragons").value = "66")
+	if (document.getElementById("paragons").value == "66")
 	{
 		s=s*1.25;
 	}
@@ -397,9 +498,19 @@ function sourceXP(tsNum)
 	{
 		s=s*1.2;
 	}
-		s=s*(Math.pow(((tsNum+1)/1000),0.35)+1)
-		console.debug(tsNum);
-		console.debug((Math.pow(((tsNum+1)/1000),0.35)+1));
+	if (document.getElementById("progressWeek").checked == true)
+	{
+		s=s*1.2;
+	}
+		if(cc=="Prod")
+		{
+			s=s*(Math.pow(((tsNum+1)/1000),0.35)+1)
+			console.debug("----tsNum_TS_SourceXP_Multi----");
+			console.debug("tsNum: "+tsNum);
+			console.debug((Math.pow(((tsNum+1)/1000),0.35)+1));
+		}
+		console.debug("----s_sourceXP----");
+		console.debug("s: "+s);
 	return s;
 }
 
@@ -408,7 +519,7 @@ function activeXP()
 	var z=1;
 if (document.getElementById("mightyGroup").checked == true)
 	{
-		console.debug("a");
+		//console.debug("a");
 		z=z*1.1;
 	}
 if (document.getElementById("masteryPoints").value >= 50)
@@ -480,11 +591,16 @@ if (document.getElementById("HollowEye").value == "Leg" || document.getElementBy
 	{
 		z=z*2;
 	}
+if (document.getElementById("progressWeek").checked == true)
+	{
+		z=z*2;
+	}
 		z=z*document.getElementById("Endless").value;
 		z=z*document.getElementById("Casque").value;
 		z=z*document.getElementById("Great").value;
 		z=z*document.getElementById("Artificer").value;
-
+		console.debug("----z_activeXP----");
+		console.debug("z: "+z);
 return z
 }
 
@@ -514,7 +630,7 @@ function fromSci(obj)
 	if (obj.exp < 300)
 	{
 	numb = obj.base * Math.pow(10,obj.exp);	
-	console.debug("obj:"+obj+"   "+numb);
+	//console.debug("obj:"+obj+"   "+numb);
 	}
 	return numb;
 		
@@ -530,10 +646,78 @@ function toScientfic(numb)
 	n = String(n);
 	l = n.length;
 
+	
 	out = n.substr(0,1)+"."+n.substr(1,2)+"E"+String(n.length-1);
 	return out;
 }
 
+function mSource(tot_Mana,cc,pet)
+{
+	var manaObj = tot_Mana;
+	var petObj = pet;
+	var cls = cc;
+	
+		console.debug("----manaObj_petObj_cls----");
+		console.debug("manaObj.base:"+manaObj.base);
+		console.debug("manaObj.exp:"+manaObj.exp);
+		console.debug("petObj.base:"+petObj.base);
+		console.debug("petObj.exp:"+petObj.exp);
+		console.debug("cls:"+cls);
+	
+	var mGem = 0;
+	var Grim = 0;
+	var SF = 0;
+	var ET = 0;
+	var AD = 0;
+	var CP = 0;
+	var DR = 0;
+	var Nex = 0;
+	var ms = 0;
+	
+	if (cls == "Prod")
+		{
+			mGem = ((Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(15))/Math.log10(1.1475))+1;			
+			Grim = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(240))/Math.log10(1.155)+1;
+			SF   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(3200))/Math.log10(1.1625)+1;
+			ET   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(54600))/Math.log10(1.17)+1;
+			AD   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(1180000))/Math.log10(1.1775)+1;
+			CP   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(282360000))/Math.log10(1.185)+1;
+			DR   = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(6221250000))/Math.log10(1.1925)+1;
+			Nex  = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(221913000000))/Math.log10(1.2)+1;
+		}else
+		{
+			mGem = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(15))/Math.log10(1.16)+1;
+			Grim = (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(240))/Math.log10(1.17)+1;
+			SF  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(3200))/Math.log10(1.18)+1;
+			ET  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(54600))/Math.log10(1.19)+1;
+			console.debug("Log of costs:"+Math.log10(54600));
+			console.debug("Log of 1.19:"+Math.log10(1.19));
+			console.debug("Log of Bases:"+Math.log10(manaObj.base*petObj.base));
+			AD  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(1180000))/Math.log10(1.2)+1;
+			CP  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(282360000))/Math.log10(1.21)+1;
+			DR  =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(6221250000))/Math.log10(1.22)+1;
+			Nex =  (Number(manaObj.exp)+Number(petObj.exp)+Math.log10(manaObj.base*petObj.base)-Math.log10(221913000000))/Math.log10(1.23)+1;
+		}
+		
+		console.debug("---mana Sources-(calculated)------");
+		console.debug("mGem: "+mGem);
+		console.debug("Grim: "+Grim);
+		console.debug("SF: "+SF);
+		console.debug("ET: "+ET);
+		console.debug("AD: "+AD);
+		console.debug("CP: "+CP);
+		console.debug("DR: "+DR);
+		console.debug("Nex: "+Nex);
+		
+		
+		
+		mS = parseInt(mGem+Grim+SF+ET+AD+CP+DR+Nex);
+		console.debug("mS: "+mS);
+	
+	return mS
+}
+
+ 
 </script>
 
 <button onclick="Calc();">Calculate</button>
