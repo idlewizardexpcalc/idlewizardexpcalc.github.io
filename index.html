@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
+	<title>Idle Wizard Experience Calc</title>
 	<h1>Idle Wizard Experience Calculator</h1>
 	<p>Release Date: 12/2019 </p>
 	<p>For use with: <a href="https://idle-wizard.fandom.com/wiki/Character_Leveling_Guide_%28240%2B%29">
@@ -37,14 +38,50 @@ Character Leveling Guide (240+)</a> by Rhasntsul</p>
 	</p>
 	<!--<p> Mana Sources: <input type="text" id="manaSources" value="100000"></br> -->
 	<p>
-	Current Mana (X.XXEYY): <input type="text" id="cur_mana" value="1.00E12"></br>
-	Max Manu (X.XXEYY): <input type="text" id="max_mana" value="1.00E12"></br>
-	Autoclicks (X.XXEYY): <input type="text" id="autoClicks" value="1.00E12"></br>
-	Void Entities (X.XXEYY): <input type="text" id="voidEnts" value="1.00E12"></br>
-	Spellcasts (X.XXEYY): <input type="text" id="spellCasts" value="1.00E12"></br>
-	Starting Level: <input type="text" id="startLevel" value="12"></br>
-	Level Wanted: <input type="text" id="finishLevel" value="280"></br>
-	True Sorcery Casts (X.XXEYY): <input type="text" id="tsCasts" value="1.00E12"></br>
+		<table>
+		<tr>
+			<td><b>Mana</b></td>
+		</tr>
+		<tr>
+			<td id="curMana_txt">Current Mana (X.XXEYY):</td><td><input type="text" id="cur_mana" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td id="maxMana_txt">Max Manu (X.XXEYY):</td><td><input type="text" id="max_mana" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td><b>Void Entities / Liquid Shadow / Hallow Clicks</b></td>
+		</tr>
+		<tr>
+			<td id="voidEnt_txt">Void Entities (X.XXEYY):</td><td><input type="text" id="voidEnts" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td id="liqShad_txt">Liquid Shadow Spent (X.XXEYY):</td><td><input type="text" id="spentLS" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td id="voidEnt_txt">Excess Hallowed Clicks (X.XXEYY):</td><td><input type="text" id="eHC" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td><b>Autoclicks / Spellcasts</b></td>
+		</tr>
+		<tr>
+			<td id="ACtxt"> Autoclicks (X.XXEYY):</td><td><input type="text" id="autoClicks" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td id="SCtxt"> Spellcasts (X.XXEYY):</td><td><input type="text" id="spellCasts" value="1.00E12"></td>
+		</tr>
+		<tr>
+			<td><b>Additional Info:</b></td>
+		</tr>
+		<tr>
+			<td id="startlvl_txt">Starting Level:</td><td><input type="text" id="startLevel" value="12"></td>
+		</tr>
+		<tr>
+			<td id="finishlvl_txt">Level Wanted: </td><td><input type="text" id="finishLevel" value="270"></td>
+		</tr>
+		<tr>
+			<td id="tsCasts_txt">True Sorcery Casts (X.XXEYY):</td><td><input type="text" id="tsCasts" value="1.00E12"></td>
+		</tr>
+		</table>
 	</p>
 	<h2>Additional Details:</h2>
 	<p>
@@ -333,6 +370,8 @@ function Calc()
 	var max_manaObj = { base: "", exp: ""};
 	var acObj = {base: "", exp: ""};
 	var veObj = {base: "", exp: ""};
+	var hcObj = {base: "", exp: ""};
+	var lsObj = {base: "", exp: ""};
 	var scObj = {base: "", exp: ""};
 	var tsObj = {base: "", exp: ""};
 
@@ -340,11 +379,15 @@ function Calc()
 	splitSci(max_manaObj,document.getElementById("max_mana"));
 	splitSci(acObj,document.getElementById("autoClicks"));
 	splitSci(veObj,document.getElementById("voidEnts"));
+	splitSci(lsObj,document.getElementById("spentLS"));
+	splitSci(hcObj,document.getElementById("eHC"));
 	splitSci(scObj,document.getElementById("spellCasts"));
 	splitSci(tsObj,document.getElementById("tsCasts"));
 
 	var acNum = fromSci(acObj);
 	var veNum = fromSci(veObj);
+	var hcNum = fromSci(hcObj);
+	var lsNum = fromSci(lsObj);
 	var scNum = fromSci(scObj);
 	var tsNum = fromSci(tsObj);
 	
@@ -382,8 +425,8 @@ function Calc()
 	console.debug('lalalalala:'+sXP);
 	console.debug('lalalalala2:'+manaSrc);
 	manaSrc = Math.pow(sXP * manaSrc + 1,0.855);
-	console.debug("----manaSrc_usedInCurrentXP_Calc----");
-	console.debug("manaSrc:"+manaSrc);
+	//console.debug("----manaSrc_usedInCurrentXP_Calc----");
+	//console.debug("manaSrc:"+manaSrc);
 	
 	var cur_mana = Number(cur_manaObj.exp) + Number(Math.log10(cur_manaObj.base));
 	//console.debug("cur_manaObj.exp: "+cur_manaObj.exp);
@@ -398,7 +441,17 @@ function Calc()
 	console.debug("----ac_usedInCurrentXP_Calc----");
 	console.debug("ac:"+ac);
 	
-	var ve = Math.log(aXP*veNum+1);
+	var ve=0;
+	if (cls=="Deso")
+	{
+		ve = Math.log(aXP*(veNum+(lsNum/1000))+1);
+	}else if (cls=="Here")
+	{
+		ve = Math.log(aXP*(veNum+hcNum)+1);
+	}else
+	{
+		ve = Math.log(aXP*veNum+1);
+	}
 	console.debug("veNum: "+veNum);
 	console.debug("ve:"+ve);
 
@@ -428,12 +481,18 @@ function Calc()
 	document.getElementById("needed_XP").style.backgroundColor = "yellow"
 	
 
-	document.getElementById("Tot_TS_Cast_Needed").innerHTML = "???"
+	//document.getElementById("Tot_TS_Cast_Needed").innerHTML = "???"
+	//document.getElementById("TS_Cast_Needed").innerHTML = "???"
+	
+	if (cls=="Prod")
+	{
+	
 	var TotTS = Math.pow((Math.pow(gXP/cXP,1/0.855)*tsSourceXP-1),1/0.35)*1000;
 	console.debug("TotTS:"+TotTS);
 	TotTSs = toScientfic(TotTS);
 	document.getElementById("Tot_TS_Cast_Needed").innerHTML = TotTSs;
 	document.getElementById("Tot_TS_Cast_Needed").style.backgroundColor = "yellow"
+	
 
 	document.getElementById("TS_Cast_Needed").innerHTML = "???"
 	var TSneed = TotTS-tsNum;
@@ -441,6 +500,14 @@ function Calc()
 	TSneeds = toScientfic(TSneed);
 	document.getElementById("TS_Cast_Needed").innerHTML = TSneeds;
 	document.getElementById("TS_Cast_Needed").style.backgroundColor = "yellow"
+	} else
+	{
+		document.getElementById("Tot_TS_Cast_Needed").innerHTML = "N/A";
+		document.getElementById("TS_Cast_Needed").innerHTML = "N/A";
+		document.getElementById("TS_Cast_Needed").style.backgroundColor = "red"
+		document.getElementById("Tot_TS_Cast_Needed").style.backgroundColor = "red"
+	}
+	
 
 }
 
