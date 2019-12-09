@@ -84,8 +84,7 @@ Character Leveling Guide (240+)</a> by Rhasntsul</p>
 		</table>
 	</p>
 	<h2>Additional Details:</h2>
-	<p>
-	Progress Week: <input type="checkbox" id="progressWeek"></br>
+	<p id="pwtxt">Progress Week: <input type="checkbox" id="progressWeek"></br>
 	</p>
 	<p>
 	Paragons: 
@@ -114,57 +113,57 @@ Challenges:
 		<td>
 		<table>
 			<tr>
-			10.) Spell-Sources <input type="checkbox" id="c10" checked="false"></br>
+			<td id="c10t">10.) Spell-Sources</td><td><input type="checkbox" id="c10" checked="false"></td>
 			</tr>
 			<tr>
-			17.) Full-Power Alchemist <input type="checkbox" id="c17" checked="false"></br>
+			<td id="c17t">17.) Full-Power Alchemist</td><td><input type="checkbox" id="c17" checked="false"></td>
+			</tr
+			<tr>
+			<td id="c18t">18.) Full-Power Alchemist II</td><td><input type="checkbox" id="c18" checked="false"></td>
 			</tr>
 			<tr>
-			18.) Full-Power Alchemist II <input type="checkbox" id="c18" checked="false"></br>
+			<td id="c19t">19.) Full-Power Alchemist III</td><td><input type="checkbox" id="c19" checked="false"></td>
 			</tr>
 			<tr>
-			19.) Full-Power Alchemist III <input type="checkbox" id="c19" checked="false"></br>
-			</tr>
-			<tr>
-			37.) Unstable Curse <input type="checkbox" id="c37" checked="false"></br>
-			</tr>
-		</table>
-		</td>
-		<td>
-		<table>
-			<tr>
-			38.) Unstable Curse II<input type="checkbox" id="c38" checked="false"></br>
-			</tr>
-			<tr>
-			39.) Unstable Curse III <input type="checkbox" id="c39" checked="false"></br>
-			</tr>
-			<tr>
-			67.) Experiments with Anomaly IV <input type="checkbox" id="c67" checked="false"></br>
-			</tr>
-			<tr>
-			70.) Unstable Time <input type="checkbox" id="c70" checked="false"></br>
-			</tr>
-			<tr>
-			71.) Training Hunger <input type="checkbox" id="c71" checked="false"></br>
+			<td id="c37t">37.) Unstable Curse</td><td><input type="checkbox" id="c37" checked="false"></td>
 			</tr>
 		</table>
 		</td>
 		<td>
 		<table>
 			<tr>
-			95.) Children of the Night <input type="checkbox" id="c95" checked="false"></br>
+			<td id="c38t">38.) Unstable Curse II</td><td><input type="checkbox" id="c38" checked="false"></td>
 			</tr>
 			<tr>
-			96.) Children of the Night II <input type="checkbox" id="c96" checked="false"></br>
+			<td id="c39t">39.) Unstable Curse III</td><td><input type="checkbox" id="c39" checked="false"></td>
 			</tr>
 			<tr>
-			97.) Children of the Night III <input type="checkbox" id="c97" checked="false"></br>
+			<td id="c67t">67.) Experiments with Anomaly IV</td><td><input type="checkbox" id="c67" checked="false"></td>
 			</tr>
 			<tr>
-			98.) Reality Decompression <input type="checkbox" id="c98" checked="false"></br>
+			<td id="c70t">70.) Unstable Time</td><td><input type="checkbox" id="c70" checked="false"></td>
 			</tr>
 			<tr>
-			99.) Absorption <input type="checkbox" id="c99" checked="true"></br>
+			<td id="c71t">71.) Training Hunger</td><td><input type="checkbox" id="c71" checked="false"></td>
+			</tr>
+		</table>
+		</td>
+		<td>
+		<table>
+			<tr>
+			<td id="c95t">95.) Children of the Night</td><td><input type="checkbox" id="c95" checked="false"></td>
+			</tr>
+			<tr>
+			<td id="c96t">96.) Children of the Night II</td><td><input type="checkbox" id="c96" checked="false"></td>
+			</tr>
+			<tr>
+			<td id="c97t">97.) Children of the Night III</td><td><input type="checkbox" id="c97" checked="false"></td>
+			</tr>
+			<tr>
+			<td id="c98t">98.) Reality Decompression</td><td><input type="checkbox" id="c98" checked="false"></td>
+			</tr>
+			<tr>
+			<td id="c99t">99.) Absorption</td><td><input type="checkbox" id="c99" checked="true"></td>
 			</tr>
 		</table>
 		</td>
@@ -172,26 +171,26 @@ Challenges:
 </table>
 </p>
 <h2>Secret Achievements:</h2>
-Much Potential Left  <input type="checkbox" id="muchPot"></br>
-Mighty Group <input type="checkbox" id="mightyGroup"></br>
+<p id="mplTxt">Much Potential Left  <input type="checkbox" id="muchPot"></br></p>
+<p id="mgTxt">Mighty Group <input type="checkbox" id="mightyGroup"></br></p>
 <h2>Items:</h2>
-<p>Nomadic Wrists 
+<p id="NWtxt"> Nomadic Wrists 
 <select id="Nomadic">
 <option value="None">Not Equipped</option>
 <option value="Rare">Rare</option>
 <option value="Epic">Epic</option>
 <option value="Leg">Legendary</option>
 </select>
-</br>
-Hollow Eye Pendant
+</p>
+<p id="HEPtxt"> Hollow Eye Pendant
 <select id="HollowEye">
 <option value="None">Not Equipped</option>
 <option value="Rare">Rare</option>
 <option value="Epic">Epic</option>
 <option value="Leg">Legendary</option>
 </select>
-</br>
-Endless Pouches
+</p>
+<p id="EPtxt"> Endless Pouches
 <select id="Endless">
 <option value="1">Not Equipped</option>
 <option value="1.25">Uncommon</option>
@@ -199,31 +198,30 @@ Endless Pouches
 <option value="2">Epic</option>
 <option value="2.5">Legendary</option>
 </select>
-</br>
-Casque of Learning
+</p>
+<p id="CLtxt"> Casque of Learning
 <select id="Casque">
 <option value="1">Not Equipped</option>
 <option value="1.2">Epic</option>
 <option value="2">Legendary</option>
 </select>
-</br>
-The Great Journey
+</p>
+<p id="GJtxt"> The Great Journey
 <select id="Great">
 <option value="1">Not Equipped</option>
-<option value="1.25">Uncommon</option>
+<option value="1.25">Common</option>
 <option value="1.5">Uncommon</option>
 <option value="1.75">Rare</option>
 <option value="2">Epic</option>
 <option value="2">Legendary</option>
 </select>
-</br>
-Artificer's Shoulderpads
+</p>
+<p id="AStxt"> Artificer's Shoulderpads
 <select id="Artificer">
 <option value="1">Not Equipped</option>
 <option value="1.15">Epic</option>
 <option value="1.5">Legendary</option>
 </select>
-</br>
 </p>
 </td>
 <td>
@@ -324,6 +322,8 @@ Time to Goal during Persistence Week
 function Calc()
 {
 
+	format();
+	
 	var petObj = { base: "", exp: ""};
 
 	var cls = document.getElementById("class").value;
@@ -786,6 +786,312 @@ function mSource(tot_Mana,cc,pet)
 	return mS
 }
 
+function format()
+{
+	//change Nomadic Wrists
+	if(document.getElementById("Nomadic").value == "Rare")
+	{
+		document.getElementById("NWtxt").style.backgroundColor = "blue";
+		document.getElementById("NWtxt").style.color = "white";
+	}else if(document.getElementById("Nomadic").value == "Epic")
+	{
+		document.getElementById("NWtxt").style.color = "white";
+		document.getElementById("NWtxt").style.backgroundColor = "purple";
+	}else if(document.getElementById("Nomadic").value == "Leg")
+	{
+		document.getElementById("NWtxt").style.backgroundColor = "orange";
+		document.getElementById("NWtxt").style.color = "black";
+	}else
+	{
+		document.getElementById("NWtxt").style.color = "black";
+		document.getElementById("NWtxt").style.backgroundColor = "white";
+	}
+	
+	//change Hollow Eye Pendant
+	if(document.getElementById("HollowEye").value == "Rare")
+	{
+		document.getElementById("HEPtxt").style.backgroundColor = "blue";
+		document.getElementById("HEPtxt").style.color = "white";
+	}else if(document.getElementById("HollowEye").value == "Epic")
+	{
+		document.getElementById("HEPtxt").style.color = "white";
+		document.getElementById("HEPtxt").style.backgroundColor = "purple";
+	}else if(document.getElementById("HollowEye").value == "Leg")
+	{
+		document.getElementById("HEPtxt").style.backgroundColor = "orange";
+		document.getElementById("HEPtxt").style.color = "black";
+	}else
+	{
+		document.getElementById("HEPtxt").style.color = "black";
+		document.getElementById("HEPtxt").style.backgroundColor = "white";
+	}
+
+	//change Endless Pouches
+	if(document.getElementById("Endless").options[document.getElementById("Endless").selectedIndex].innerHTML == "Rare")
+	{
+		document.getElementById("EPtxt").style.backgroundColor = "blue";
+		document.getElementById("EPtxt").style.color = "white";
+	}else if(document.getElementById("Endless").options[document.getElementById("Endless").selectedIndex].innerHTML== "Epic")
+	{
+		document.getElementById("EPtxt").style.color = "white";
+		document.getElementById("EPtxt").style.backgroundColor = "purple";
+	}else if(document.getElementById("Endless").options[document.getElementById("Endless").selectedIndex].innerHTML == "Legendary")
+	{
+		document.getElementById("EPtxt").style.backgroundColor = "orange";
+		document.getElementById("EPtxt").style.color = "black";
+	}else if(document.getElementById("Endless").options[document.getElementById("Endless").selectedIndex].innerHTML == "Uncommon")
+	{
+		document.getElementById("EPtxt").style.color = "white";
+		document.getElementById("EPtxt").style.backgroundColor = "green";
+	}else
+	{
+		document.getElementById("EPtxt").style.color = "black";
+		document.getElementById("EPtxt").style.backgroundColor = "white";
+	}
+	
+	//change Casque of Learning
+	if(document.getElementById("Casque").options[document.getElementById("Casque").selectedIndex].innerHTML == "Rare")
+	{
+		document.getElementById("CLtxt").style.backgroundColor = "blue";
+		document.getElementById("CLtxt").style.color = "white";
+	}else if(document.getElementById("Casque").options[document.getElementById("Casque").selectedIndex].innerHTML== "Epic")
+	{
+		document.getElementById("CLtxt").style.color = "white";
+		document.getElementById("CLtxt").style.backgroundColor = "purple";
+	}else if(document.getElementById("Casque").options[document.getElementById("Casque").selectedIndex].innerHTML == "Legendary")
+	{
+		document.getElementById("CLtxt").style.backgroundColor = "orange";
+		document.getElementById("CLtxt").style.color = "black";
+	}else if(document.getElementById("Casque").options[document.getElementById("Casque").selectedIndex].innerHTML == "Uncommon")
+	{
+		document.getElementById("CLtxt").style.color = "white";
+		document.getElementById("CLtxt").style.backgroundColor = "green";
+	}else
+	{
+		document.getElementById("CLtxt").style.color = "black";
+		document.getElementById("CLtxt").style.backgroundColor = "white";
+	}
+	
+	//change The Great Journey
+	if(document.getElementById("Great").options[document.getElementById("Great").selectedIndex].innerHTML == "Rare")
+	{
+		document.getElementById("GJtxt").style.backgroundColor = "blue";
+		document.getElementById("GJtxt").style.color = "white";
+	}else if(document.getElementById("Great").options[document.getElementById("Great").selectedIndex].innerHTML== "Epic")
+	{
+		document.getElementById("GJtxt").style.color = "white";
+		document.getElementById("GJtxt").style.backgroundColor = "purple";
+	}else if(document.getElementById("Great").options[document.getElementById("Great").selectedIndex].innerHTML == "Legendary")
+	{
+		document.getElementById("GJtxt").style.backgroundColor = "orange";
+		document.getElementById("GJtxt").style.color = "black";
+	}else if(document.getElementById("Great").options[document.getElementById("Great").selectedIndex].innerHTML == "Uncommon")
+	{
+		document.getElementById("GJtxt").style.color = "white";
+		document.getElementById("GJtxt").style.backgroundColor = "green";
+	}else
+	{
+		document.getElementById("GJtxt").style.color = "black";
+		document.getElementById("GJtxt").style.backgroundColor = "white";
+	}
+
+	//change Artificer's Shoulderpads
+	if(document.getElementById("Artificer").options[document.getElementById("Artificer").selectedIndex].innerHTML == "Rare")
+	{
+		document.getElementById("AStxt").style.backgroundColor = "blue";
+		document.getElementById("AStxt").style.color = "white";
+	}else if(document.getElementById("Artificer").options[document.getElementById("Artificer").selectedIndex].innerHTML== "Epic")
+	{
+		document.getElementById("AStxt").style.color = "white";
+		document.getElementById("AStxt").style.backgroundColor = "purple";
+	}else if(document.getElementById("Artificer").options[document.getElementById("Artificer").selectedIndex].innerHTML == "Legendary")
+	{
+		document.getElementById("AStxt").style.backgroundColor = "orange";
+		document.getElementById("AStxt").style.color = "black";
+	}else if(document.getElementById("Artificer").options[document.getElementById("Artificer").selectedIndex].innerHTML == "Uncommon")
+	{
+		document.getElementById("AStxt").style.color = "white";
+		document.getElementById("AStxt").style.backgroundColor = "green";
+	}else
+	{
+		document.getElementById("AStxt").style.color = "black";
+		document.getElementById("AStxt").style.backgroundColor = "white";
+	}
+	
+	//check boxes
+	
+	//progress week
+	if(document.getElementById("progressWeek").checked == true)
+	{
+		document.getElementById("pwtxt").style.backgroundColor = "green";
+		document.getElementById("pwtxt").style.color = "white";
+	}else
+	{
+		document.getElementById("pwtxt").style.backgroundColor = "red";
+		document.getElementById("pwtxt").style.color = "white";
+	}
+	
+	//Much Potential Left  
+	if(document.getElementById("muchPot").checked == true)
+	{
+		document.getElementById("mplTxt").style.backgroundColor = "green";
+		document.getElementById("mplTxt").style.color = "white";
+	}else
+	{
+		document.getElementById("mplTxt").style.backgroundColor = "red";
+		document.getElementById("mplTxt").style.color = "white";
+	}
+	
+	//Mighty Group
+	if(document.getElementById("mightyGroup").checked == true)
+	{
+		document.getElementById("mgTxt").style.backgroundColor = "green";
+		document.getElementById("mgTxt").style.color = "white";
+	}else
+	{
+		document.getElementById("mgTxt").style.backgroundColor = "red";
+		document.getElementById("mgTxt").style.color = "white";
+	}
+	
+	//challenges
+	if(document.getElementById("c10").checked == true)
+	{
+		document.getElementById("c10t").style.backgroundColor = "green";
+		document.getElementById("c10t").style.color = "white";
+	}else
+	{
+		document.getElementById("c10t").style.backgroundColor = "red";
+		document.getElementById("c10t").style.color = "white";
+	}
+	if(document.getElementById("c17").checked == true)
+	{
+		document.getElementById("c17t").style.backgroundColor = "green";
+		document.getElementById("c17t").style.color = "white";
+	}else
+	{
+		document.getElementById("c17t").style.backgroundColor = "red";
+		document.getElementById("c17t").style.color = "white";
+	}
+	if(document.getElementById("c18").checked == true)
+	{
+		document.getElementById("c18t").style.backgroundColor = "green";
+		document.getElementById("c18t").style.color = "white";
+	}else
+	{
+		document.getElementById("c18t").style.backgroundColor = "red";
+		document.getElementById("c18t").style.color = "white";
+	}
+	if(document.getElementById("c19").checked == true)
+	{
+		document.getElementById("c19t").style.backgroundColor = "green";
+		document.getElementById("c19t").style.color = "white";
+	}else
+	{
+		document.getElementById("c19t").style.backgroundColor = "red";
+		document.getElementById("c19t").style.color = "white";
+	}
+	if(document.getElementById("c37").checked == true)
+	{
+		document.getElementById("c37t").style.backgroundColor = "green";
+		document.getElementById("c37t").style.color = "white";
+	}else
+	{
+		document.getElementById("c37t").style.backgroundColor = "red";
+		document.getElementById("c37t").style.color = "white";
+	}
+	if(document.getElementById("c38").checked == true)
+	{
+		document.getElementById("c38t").style.backgroundColor = "green";
+		document.getElementById("c38t").style.color = "white";
+	}else
+	{
+		document.getElementById("c38t").style.backgroundColor = "red";
+		document.getElementById("c38t").style.color = "white";
+	}
+	if(document.getElementById("c39").checked == true)
+	{
+		document.getElementById("c39t").style.backgroundColor = "green";
+		document.getElementById("c39t").style.color = "white";
+	}else
+	{
+		document.getElementById("c39t").style.backgroundColor = "red";
+		document.getElementById("c39t").style.color = "white";
+	}
+	if(document.getElementById("c67").checked == true)
+	{
+		document.getElementById("c67t").style.backgroundColor = "green";
+		document.getElementById("c67t").style.color = "white";
+	}else
+	{
+		document.getElementById("c67t").style.backgroundColor = "red";
+		document.getElementById("c67t").style.color = "white";
+	}
+	if(document.getElementById("c70").checked == true)
+	{
+		document.getElementById("c70t").style.backgroundColor = "green";
+		document.getElementById("c70t").style.color = "white";
+	}else
+	{
+		document.getElementById("c70t").style.backgroundColor = "red";
+		document.getElementById("c70t").style.color = "white";
+	}
+	if(document.getElementById("c71").checked == true)
+	{
+		document.getElementById("c71t").style.backgroundColor = "green";
+		document.getElementById("c71t").style.color = "white";
+	}else
+	{
+		document.getElementById("c71t").style.backgroundColor = "red";
+		document.getElementById("c71t").style.color = "white";
+	}
+	if(document.getElementById("c95").checked == true)
+	{
+		document.getElementById("c95t").style.backgroundColor = "green";
+		document.getElementById("c95t").style.color = "white";
+	}else
+	{
+		document.getElementById("c95t").style.backgroundColor = "red";
+		document.getElementById("c95t").style.color = "white";
+	}
+	if(document.getElementById("c96").checked == true)
+	{
+		document.getElementById("c96t").style.backgroundColor = "green";
+		document.getElementById("c96t").style.color = "white";
+	}else
+	{
+		document.getElementById("c96t").style.backgroundColor = "red";
+		document.getElementById("c96t").style.color = "white";
+	}
+	if(document.getElementById("c97").checked == true)
+	{
+		document.getElementById("c97t").style.backgroundColor = "green";
+		document.getElementById("c97t").style.color = "white";
+	}else
+	{
+		document.getElementById("c97t").style.backgroundColor = "red";
+		document.getElementById("c97t").style.color = "white";
+	}
+	
+	if(document.getElementById("c98").checked == true)
+	{
+		document.getElementById("c98t").style.backgroundColor = "green";
+		document.getElementById("c98t").style.color = "white";
+	}else
+	{
+		document.getElementById("c98t").style.backgroundColor = "red";
+		document.getElementById("c98t").style.color = "white";
+	}
+	
+	if(document.getElementById("c99").checked == true)
+	{
+		document.getElementById("c99t").style.backgroundColor = "green";
+		document.getElementById("c99t").style.color = "white";
+	}else
+	{
+		document.getElementById("c99t").style.backgroundColor = "red";
+		document.getElementById("c99t").style.color = "white";
+	}
+}
  
 </script>
 
