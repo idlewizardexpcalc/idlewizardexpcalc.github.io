@@ -4,6 +4,7 @@
 	<title>Idle Wizard Experience Calc</title>
 	<h1>Idle Wizard Experience Calculator</h1>
 	<p>Release Date: 12/2019 </p>
+	<p>Revision: 3/24/2020 -- to update for paragon/legacy changes due to Version 1.0.0</p>
 	<p>For use with: <a href="https://idle-wizard.fandom.com/wiki/Character_Leveling_Guide_%28240%2B%29">
 Character Leveling Guide (240+)</a> by Rhasntsul</p>
 	<p>For the awesome idle game created by: Vadim 'exsercrat' Salnikov (exsercrat#7843)</br>
@@ -87,14 +88,24 @@ Character Leveling Guide (240+)</a> by Rhasntsul</p>
 	<p id="pwtxt">Progress Week: <input type="checkbox" id="progressWeek"></br>
 	</p>
 	<p>
-	Paragons: 
+	Legacy: 
 	<select id="paragons">
-		<option value="1">None</option>
-		<option value="15">15+</option>
+		<option value="0">None</option>
+		<option value="1">1</option>
+		<option value="5">5+</option>
+		<option value="7">7+</option>
 		<option value="18">18+</option>
-		<option value="23">23+</option>
-		<option value="46">46+</option>
-		<option value="66">66+</option>
+		<option value="20">20+</option>
+		<option value="25">25+</option>
+		<option value="27">27+</option>
+		<option value="31">31+</option>
+		<option value="37">37+</option>
+		<option value="42">42+</option>
+		<option value="49">49+</option>
+		<option value="56">56+</option>
+		<option value="60">60+</option>
+		<option value="64">64+</option>
+		<option value="72">72+</option>
 	</select>
 	</p>
 	<p>
@@ -514,6 +525,9 @@ function Calc()
 function sourceXP(tsNum,cc)
 {
 	var s=1;
+	var leg=0;
+	
+	leg = Number(document.getElementById("paragons").value)
 
 	if (document.getElementById("muchPot").checked == true)
 	{
@@ -530,7 +544,23 @@ function sourceXP(tsNum,cc)
 	{
 		s=s*1.15;
 	}
-	if (document.getElementById("paragons").value == "66")
+	if (leg < 7)
+	{
+		s=s*1.05;
+	}
+	if (leg < 20)
+	{
+		s=s*1.10;
+	}
+	if (leg < 27)
+	{
+		s=s*1.15;
+	}
+	if (leg < 56)
+	{
+		s=s*1.20;
+	}
+	if (leg =< 72)
 	{
 		s=s*1.25;
 	}
@@ -585,6 +615,7 @@ function sourceXP(tsNum,cc)
 function activeXP()
 {
 	var z=1;
+	
 if (document.getElementById("mightyGroup").checked == true)
 	{
 		//console.debug("a");
@@ -594,18 +625,33 @@ if (document.getElementById("masteryPoints").value >= 50)
 	{
 		z=z*1.5;
 	}
-if (document.getElementById("paragons").value == 15)
+if (document.getElementById("paragons").value == 5)
 	{
-		z=z*2;
+		z=z*1.5;
 	}else if (document.getElementById("paragons").value == 18)
 	{
-		z=z*2*3;
-	}else if (document.getElementById("paragons").value == 23)
+		z=z*1.5*1.5;
+	}else if (document.getElementById("paragons").value == 25)
 	{
-		z=z*2*3*3;
-	}else if (document.getElementById("paragons").value >= 46)
+		z=z*1.5*1.5*1.5;
+	}else if (document.getElementById("paragons").value == 31)
 	{
-		z=z*2*3*3*3;
+		z=z*1.5*1.5*1.5*1.5;
+	}else if (document.getElementById("paragons").value == 37)
+	{
+		z=z*1.5*1.5*1.5*1.5*1.5;
+	}else if (document.getElementById("paragons").value >= 42)
+	{
+		z=z*1.5*1.5*1.5*1.5*1.5*2;
+	}else if (document.getElementById("paragons").value >= 49)
+	{
+		z=z*1.5*1.5*1.5*1.5*1.5*2*2;
+	}else if (document.getElementById("paragons").value >= 60)
+	{
+		z=z*1.5*1.5*1.5*1.5*1.5*2*2*2;
+	}else if (document.getElementById("paragons").value >= 72)
+	{
+		z=z*1.5*1.5*1.5*1.5*1.5*2*2*2*2;
 	}
 if (document.getElementById("c10").checked == true)
 	{
